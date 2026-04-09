@@ -1,0 +1,85 @@
+.footer {
+  position: relative;
+  background-color: var(--color-primary-light);
+  color: var(--color-text);
+  padding: 8rem 0 0 0; /* Huge top padding, zero bottom padding for the watermark */
+  overflow: hidden;
+  text-align: center;
+}
+
+.footer-content {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 6rem;
+}
+
+.footer-heading {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-family: 'Playfair Display', serif; /* Optional elegant serif */
+}
+
+.footer-text {
+  font-size: 1.1rem;
+  color: rgba(44, 37, 34, 0.7);
+  max-width: 500px;
+  margin: 0 auto 2.5rem;
+}
+
+.insta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--color-text);
+  padding: 1rem 3rem;
+  border: 1px solid var(--color-text);
+  border-radius: 100px;
+  transition: var(--transition-smooth);
+}
+
+.insta-link:hover {
+  background-color: var(--color-text);
+  color: var(--color-white);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Watermark styles */
+.watermark-container {
+  position: relative;
+  width: 100%;
+  /* 
+    The watermark is 70% visible, rest embedded below. 
+    By setting height and line-height, we can push the text down.
+  */
+  height: 25vw;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.watermark-text {
+  font-size: 40vw; /* Massive text to span width */
+  font-weight: 700;
+  line-height: 0.7; /* 70% visible, the bottom text gets cropped by the container height */
+  color: var(--color-bg); /* Blend with or contrast against footer bg */
+  text-transform: uppercase;
+  letter-spacing: -0.05em;
+  opacity: 0.8; /* Subtle transparency */
+  transform: translateY(30%); /* Push down so 30% is hidden below */
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .watermark-container {
+    height: 35vw;
+  }
+  .watermark-text {
+    font-size: 50vw;
+  }
+}
